@@ -1,24 +1,17 @@
-# Import module untuk guna fungsi word_list()
-import module_reverse_word
-
-# Class untuk reverse string word by word
 class StringReverser:
-    
-    # Constructor - jalankan apabila object dibuat
     def __init__(self, input_string):
-        # Simpan string dalam variable instance
-        self.input_string = input_string
+        self.words = input_string  # simpan string asal
 
-    # Method untuk reverse string
     def reverse(self):
-        # Panggil fungsi word_list() dari module_reverse_word
-        return module_reverse_word.word_list(self.input_string)
+        words = self.words.split()  # pisahkan string kepada list of words
+        return " ".join(reversed(words))  # balik urutan words, gabung balik
 
 
-# Buat string test
+#declare variable text_string dengan nilai "hello .py"
 text_string = "hello .py"
-# Buat object StringReverser
-reverser = StringReverser(text_string)
-# Cetak input dan output
-print("Input :", text_string)
-print("Output:", reverser.reverse())
+#object bernama word_value dari class StringReverser, panggil __init__ dengan text_string
+word_value = StringReverser(text_string) 
+result = word_value.reverse()  # panggil method reverse()
+
+print("Input string  :", text_string)
+print("Expected Output:", result)
